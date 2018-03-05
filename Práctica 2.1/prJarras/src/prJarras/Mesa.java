@@ -2,8 +2,8 @@ package prJarras;
 
 public class Mesa {
 
-    private Jarra jarra1;
-    private Jarra jarra2;
+    private Jarra jarra1;                       // Una mesa contiene 2 jarras, por lo que maneja
+    private Jarra jarra2;                       // dos variables propias de tipo «Jarra».
 
     public Mesa(Jarra jarraA, Jarra jarraB){
         jarra1 = jarraA;
@@ -15,21 +15,20 @@ public class Mesa {
         jarra2 = new Jarra(capacidad2);
     }
 
-    public int capacidad(int jarra) throws RuntimeException{
-        int c = -1;
-
+    public int capacidad(int jarra){
+        int c;
 
         switch (jarra){
             case 1 : c = jarra1.capacidad(); break;
             case 2 : c = jarra2.capacidad(); break;
-            default: new RuntimeException("ERROR: Jarra mal indicada."); break;
+            default: throw new RuntimeException("ERROR: Jarra mal indicada."); // break;                                // El «break» resulta inutil, ya que si antes de el se ejecuta una excepción, nunca se ejecutara el «break».
         }
 
         return c;
     }
 
-    public int contenido(int jarra){        // Hecho con «if-else» como ejemplo.
-        int c = -1;
+    public int contenido(int jarra){                                                                                    // Hecho con «if-else» como ejemplo.
+        int c;
 
         if(jarra == 1){
             c = jarra1.contenido();
@@ -38,17 +37,17 @@ public class Mesa {
             c = jarra2.contenido();
 
         }else{
-            new RuntimeException("ERROR: Jarra mal indicada.");
+            throw new RuntimeException("ERROR: Jarra mal indicada."); // break;
         }
 
         return c;
     }
 
-    public void llenar(int jarra) throws RuntimeException{
+    public void llenar(int jarra){
         switch (jarra){
             case 1 : jarra1.llenar(); break;
             case 2 : jarra2.llenar(); break;
-            default: new RuntimeException("ERROR: Jarra mal indicada."); break;
+            default: throw new RuntimeException("ERROR: Jarra mal indicada."); // break;
         }
     }
 
@@ -56,7 +55,7 @@ public class Mesa {
         switch (jarra){
             case 1 : jarra1.vaciar(); break;
             case 2 : jarra2.vaciar(); break;
-            default: new RuntimeException("ERROR: Jarra mal indicada."); break;
+            default: throw new RuntimeException("ERROR: Jarra mal indicada."); // break;
         }
     }
 
@@ -64,7 +63,7 @@ public class Mesa {
         switch (jarra){
             case 1 : jarra1.llenarDesde(jarra2); break;
             case 2 : jarra2.llenarDesde(jarra1); break;
-            default: new RuntimeException("ERROR: Jarra mal indicada."); break;
+            default: throw new RuntimeException("ERROR: Jarra mal indicada."); // break;
         }
     }
 
