@@ -1,6 +1,7 @@
 import prJarras.Jarra;
 
 public class EjemploUsoJarras1 {
+
     public static void main(String[] args) {
 
         Jarra jarraA = new Jarra(7);
@@ -12,7 +13,7 @@ public class EjemploUsoJarras1 {
         System.out.println("B: " + jarraB + '\n');
 
         System.out.println("Llenar B con A.");
-        jarraB.llenaDesde(jarraA);
+        jarraB.llenarDesde(jarraA);
         System.out.println("A: " + jarraA);
         System.out.println("B: " + jarraB + '\n');
 
@@ -22,8 +23,10 @@ public class EjemploUsoJarras1 {
         System.out.println("B: " + jarraB + '\n');
 
         System.out.println("Llenar B con A.");
-        jarraB.llenaDesde(jarraA);
+        jarraB.llenarDesde(jarraA);
         System.out.println("A: " + jarraA);
         System.out.println("B: " + jarraB + '\n');
+
+        // El caracter «\n» (no el «String») sirve como salto de linea.
     }
 }

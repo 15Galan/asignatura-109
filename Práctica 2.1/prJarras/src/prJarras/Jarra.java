@@ -1,7 +1,7 @@
 package prJarras;
 
 public class Jarra {
-    private final int capacidad;    // Variable constante.
+    private final int capacidad;                                                                                        // Variable constante.
     private int contenido;
 
     public Jarra(){
@@ -30,8 +30,8 @@ public class Jarra {
         contenido = 0;
     }
 
-    public void llenaDesde(Jarra jarra){
-        int libre = capacidad - contenido;
+    public void llenarDesde(Jarra jarra){
+        int libre = capacidad - contenido;                                                                              // Mantener el valor constante para no alterar el computo.
 
         if(libre >= jarra.contenido){
             contenido += jarra.contenido;
@@ -43,8 +43,8 @@ public class Jarra {
         }
     }
 
-    @Override
-    public String toString() {
+    @Override                                                                                                           // Sobreescribir el método «toString» especificamente para esta clase.
+    public String toString() {                                                                                              // Se traduce como «forma de mostrar por pantalla este objeto» (en este caso, una «Jarra»).
         return "Jarra(" + contenido + "/" + capacidad + ")";
     }
 }
