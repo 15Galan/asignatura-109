@@ -1,3 +1,5 @@
+package prLibreria;
+
 public class Libro {
 
     private static double porcIVA = 10.0;
@@ -29,7 +31,7 @@ public class Libro {
 
     @Override
     public String toString(){
-        return "("+autor+"; "+titulo+"; "+precioBase+"; "+porcIVA+"%; "+getPrecioFinal()+").";
+        return "("+autor+"; "+titulo+"; "+precioBase+"; "+porcIVA+"%; "+getPrecioFinal()+")";
     }
 
     public static double getIVA(){
