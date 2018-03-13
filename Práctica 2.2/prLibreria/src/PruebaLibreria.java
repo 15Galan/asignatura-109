@@ -22,18 +22,19 @@ public class PruebaLibreria {
 
         libreria.remLibro("George Orwell", "1984");
         libreria.remLibro("Alex Huxley", "Un Mundo Feliz");
-        libreria.remLibro("Isaaac Newton", "Arithmetica Universalis");
+        libreria.remLibro("Isaac Newton", "Arithmetica Universalis");
 
         System.out.println(libreria);
+        System.out.println();
 
-        libreria.getPrecioFinal("George Orwell", "1984");
-        libreria.getPrecioFinal("Philip K. Dick", "¿Sueñan los androides con ovejas eléctricas?");
-        libreria.getPrecioFinal("isaac asimov", "fundación e imperio");
-        libreria.getPrecioFinal("Ray Bradbury", "Fahrenheit 451");
-        libreria.getPrecioFinal("Alex Huxley", "Un Mundo Feliz");
-        libreria.getPrecioFinal("Isaac Asimov", "La Fundación");
-        libreria.getPrecioFinal("william gibson", "neuromante");
-        libreria.getPrecioFinal("Isaac Asimov", "Segunda Fundación");
-        libreria.getPrecioFinal("Isaac Newton", "Arithmetica Universalis");
+        System.out.println("getPrecioFinal(George Orwell, 1984):    " + libreria.getPrecioFinal("George Orwell", "1984"));
+        System.out.println("getPrecioFinal(Philip K. Dick, ¿Sueñan los androides con ovejas eléctricas?):   " + libreria.getPrecioFinal("Philip K. Dick", "¿Sueñan los androides con ovejas eléctricas?"));
+        System.out.println("getPrecioFinal(isaac asimov, fundación e imperio):  " + libreria.getPrecioFinal("isaac asimov", "fundación e imperio"));
+        System.out.println("getPrecioFinal(Ray Bradbury, Fahrenheit 451):   " + libreria.getPrecioFinal("Ray Bradbury", "Fahrenheit 451"));
+        System.out.println("getPrecioFinal(Alex Huxley, Un Mundo Feliz):    " + libreria.getPrecioFinal("Alex Huxley", "Un Mundo Feliz"));
+        System.out.println("getPrecioFinal(Isaac Asimov, La Fundación): " + libreria.getPrecioFinal("Isaac Asimov", "La Fundación"));
+        System.out.println("getPrecioFinal(william gibson, neuromante): " + libreria.getPrecioFinal("william gibson", "neuromante"));
+        System.out.println("getPrecioFinal(Isaac Asimov, Segunda Fundación):    " + libreria.getPrecioFinal("Isaac Asimov", "Segunda Fundación"));
+        System.out.println("getPrecioFinal(Isaac Newton, Arithmetica Universalis):  " + libreria.getPrecioFinal("Isaac Newton", "Arithmetica Universalis"));
     }
 }
