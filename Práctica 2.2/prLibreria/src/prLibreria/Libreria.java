@@ -72,7 +72,7 @@ public class Libreria {
         }
 
         if(id == -1){                   // El libro no esta en el array.
-            libros[numLibs] = libro;
+            libros[numLibs] = libro;    // El array empieza en 0, por lo que «numLibs» indica la ultima posicion libre.
             numLibs++;
 
         }else{                          // El libro esta en el array.
@@ -81,13 +81,9 @@ public class Libreria {
     }
 
     private void eliminarLibro(int id){
-        int veces = numLibs - id;   // Cantidad de libros desde el que se elimina hasta el ultimo.
-                                    // Establece el numero de ciclos del bucle while.
-        do{
-            libros[id] = libros[++id];  // «++id»: actualiza el valor a «id+1» y luego lo usa.
-                                        // «id++»: usa el valor «id» y luego lo actualiza a «id+1».
-            veces--;
-        }while(veces != 0);
+
+        libros[id] = libros[numLibs-1]; // Para eliminar un libro se sustituye por el ultimo.
+        libros[numLibs-1] = null;       // Luego, se libera la ultima posicion ocupada del array.
 
         numLibs--;
     }
