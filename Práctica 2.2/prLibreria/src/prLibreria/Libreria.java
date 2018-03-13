@@ -67,7 +67,7 @@ public class Libreria {
         int id = buscarLibro(libro.getAutor(), libro.getTitulo());  // Posicion del ultimo libro.
 
         if(numLibs == libros.length){   // El array esta lleno.
-            //   prLibreria.Libro[] librosExtra = Arrays.copyOf(libros, libros.length * 2);
+
             libros = Arrays.copyOf(libros, libros.length * 2);
         }
 
@@ -93,7 +93,7 @@ public class Libreria {
     }
 
     private int buscarLibro(String autor, String titulo){
-        int i = 0, encontrado = -1;     // «encontrado» cambiara solo cuando si se encuentra el libro.
+        int i = 0, encontrado = -1;     // «encontrado» cambiara solo cuando se encuentre el libro.
 
         while(i < numLibs && encontrado == -1){     // Debe detenerse si encuentra el libro o ya no hay mas que evaluar.
             if(autor.equalsIgnoreCase(libros[i].getAutor()) && titulo.equalsIgnoreCase(libros[i].getTitulo())){
