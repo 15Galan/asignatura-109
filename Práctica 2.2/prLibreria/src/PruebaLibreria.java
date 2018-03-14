@@ -19,6 +19,7 @@ public class PruebaLibreria {
         libreria.addLibro("Isaac Newton", "Arithmetica Universalis", 10.50);
 
         System.out.println(libreria);
+        System.out.println();
 
         libreria.remLibro("George Orwell", "1984");
         libreria.remLibro("Alex Huxley", "Un Mundo Feliz");

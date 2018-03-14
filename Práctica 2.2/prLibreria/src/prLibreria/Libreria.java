@@ -37,9 +37,6 @@ public class Libreria {
         if(id != -1){
             precio = libros[id].getPrecioBase();
         }
-        //  else{
-        //      throw new RuntimeException("El libro solicitado no esta en la libreria (precio base).");
-        //  }
 
         return precio;
     }
@@ -51,16 +48,23 @@ public class Libreria {
         if(id != -1){
             precio = libros[id].getPrecioFinal();
         }
-        //  else{
-        //      throw new RuntimeException("El libro solicitado no esta en la libreria (precio final).");
-        //  }
 
         return precio;
     }
 
     @Override
     public String toString(){
-        return Arrays.toString(libros); // Metodo por defecto para mostrar un array (cuyo argumento es el array a mostrar).
+        String lista = "";  // Se crea un String al que se le iran cocatenando los libros.
+
+        for(int i = 0; i < numLibs; i++){   // Recorre el array y va añadiendo los libros al String anterior.
+            lista += libros[i];
+
+            if(i != numLibs-1){
+                lista += ", " + '\n';   // Los separa por comas y un salto de linea, salvo el ultimo (evita una coma suelta).
+            }
+        }
+
+        return "[" + lista + "]";
     }
 
     private void anyadirLibro(Libro libro){
