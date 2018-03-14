@@ -1,7 +1,7 @@
 package prJarras;
 
 public class Jarra {
-    private final int capacidad;                                                                                        // Variable constante.
+    private final int capacidad;    // Variable constante.
     private int contenido;
 
     public Jarra(){
@@ -10,8 +10,13 @@ public class Jarra {
     }
 
     public Jarra(int capacidad){
-        this.capacidad = capacidad;
-        contenido = 0;
+        if(capacidad >= 0) {
+            this.capacidad = capacidad;
+            contenido = 0;
+
+        }else{
+            throw new RuntimeException("La capacidad no puede ser negativa.");
+        }
     }
 
     public int capacidad(){
@@ -31,20 +36,25 @@ public class Jarra {
     }
 
     public void llenarDesde(Jarra jarra){
-        int libre = capacidad - contenido;                                                                              // Mantener el valor constante para no alterar el computo.
+        if(this != jarra) {
+            int libre = capacidad - contenido;      // Mantener el valor constante para no alterar el computo.
 
-        if(libre >= jarra.contenido){
-            contenido += jarra.contenido;
-            jarra.contenido = 0;
+            if (libre >= jarra.contenido) {
+                contenido += jarra.contenido;
+                jarra.contenido = 0;
+
+            } else {
+                contenido = capacidad;
+                jarra.contenido -= libre;
+            }
 
         }else{
-            contenido = capacidad;
-            jarra.contenido -= libre;
+            throw new RuntimeException("No puede llenarse una jarra consigo misma.");
         }
     }
 
-    @Override                                                                                                           // Sobreescribir el método «toString» especificamente para esta clase.
-    public String toString() {                                                                                              // Se traduce como «forma de mostrar por pantalla este objeto» (en este caso, una «Jarra»).
+    @Override                       // Sobreescribir el método «toString» especificamente para esta clase.
+    public String toString() {      // Se traduce como «forma de mostrar por pantalla este objeto» (en este caso, una «Jarra»).
         return "Jarra(" + contenido + "/" + capacidad + ")";
     }
 }
