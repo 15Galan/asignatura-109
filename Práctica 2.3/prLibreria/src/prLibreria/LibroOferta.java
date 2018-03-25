@@ -14,15 +14,17 @@ public class LibroOferta extends Libro{
         return porcDescuento;
     }
 
-    @Override
-    public double getPrecioFinal(){
-        double precio = getPrecioBase() - (getPrecioBase()*porcDescuento) / 100;    // Un descuento se aplica antes que el IVA.
-
-        return precio + precio * getIVA() / 100;    // No puede usarse «super.getPrecioFinal()» porque el precio sería incorrecto.
+    private double getPrecioDescuento(){
+        return getPrecioBase() - (getPrecioBase()*porcDescuento) / 100;
     }
 
     @Override
-    public String toString() {  // (Autor, Titulo, Precio base, IVA (%), Precio con IVA, Descuento (%), Precio final).
-        return "("+getAutor()+"; "+getTitulo()+"; "+getPrecioBase()+"; "+getIVA()+"%; "+super.getPrecioFinal()+"; "+getDescuento()+"; "+getPrecioFinal()+")";
+    public double getPrecioFinal(){
+        return getPrecioDescuento() + getPrecioDescuento() * getIVA() / 100;
+    }
+
+    @Override
+    public String toString() {  // (Autor, Titulo, Precio base, Descuento (%), Precio con decuento, IVA (%), Precio final).
+        return "("+getAutor()+"; "+getTitulo()+"; "+getPrecioBase()+"; "+getDescuento()+"%; "+getPrecioDescuento()+"; "+getIVA()+"; "+getPrecioFinal()+")";
     }
 }

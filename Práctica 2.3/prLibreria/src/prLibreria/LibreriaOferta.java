@@ -1,5 +1,7 @@
 package prLibreria;
 
+import java.util.Arrays;
+
 public class LibreriaOferta extends Libreria {
 
     private double porcDescuento;       // Descuento propio de esta clase.
@@ -47,7 +49,7 @@ public class LibreriaOferta extends Libreria {
     @Override
     public String toString(){
 
-        System.out.println(porcDescuento+"%"+autoresOferta);    // Igual que una Libreria, pero primero muestra las ofertas.
+        System.out.println(porcDescuento+"% "+ Arrays.toString(autoresOferta));    // Igual que una Libreria, pero primero muestra las ofertas.
 
         return super.toString();
     }
