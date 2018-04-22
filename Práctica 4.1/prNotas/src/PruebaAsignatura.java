@@ -15,8 +15,16 @@ public class PruebaAsignatura {
 
         try {
             System.out.println(asignatura.toString());
-            System.out.println(asignatura.getMedia());
-            System.out.println(asignatura.getCalificacion(new Alumno("Lopez Perez, Pedro","12455666F", 6.7)));
+            System.out.println("Media de la asignatura:  " + asignatura.getMedia());
+            System.out.println("\nAlumnos...");
+
+            for(Alumno alumno : asignatura.getAlumnos()) {
+                System.out.println(alumno);
+            }
+
+            System.out.println("\nCalificacion de «" + asignatura.getAlumnos()[0].toString() + "»: " + asignatura.getCalificacion(asignatura.getAlumnos()[0]));
+
+            System.out.println("\nCalificacion de «" + asignatura.getCalificacion(new Alumno("Lopez Lopez, Pedro","12455666F", 6.7)));
 
         }catch (AlumnoException e) {
             System.err.println(e.getMessage());

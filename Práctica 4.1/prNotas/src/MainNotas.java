@@ -21,28 +21,30 @@ public class MainNotas {
 			Alumno al2 = new Alumno("34242432J","Fernandez Vara, Pedro");
 			System.out.println("Calificacion de "+al1+": "+algebra.getCalificacion(al1));
 			System.out.println("Calificacion de "+al2+": "+algebra.getCalificacion(al2));
+
 		} catch(AlumnoException e) {
 			System.err.println(e.getMessage());
 		}
 
 		try {
-			System.out.printf("Media %4.2f\n", algebra.getMedia());
+			System.out.printf("Media de la asignatura: %4.2f\n", algebra.getMedia());
+
 		} catch(AlumnoException e) {
 			System.err.println(e.getMessage());
 		}
 
-		System.out.println("Alumnos...");
+		System.out.println("\nAlumnos...");
 
-		for(Alumno alumno:algebra.getAlumnos()) {
+		for(Alumno alumno : algebra.getAlumnos()) {
 			System.out.println(alumno + ": " + alumno.getCalificacion());
 		}
 
-		System.out.println("Errores...");
+		System.out.println("\nErrores...");
 
-		for(String error:algebra.getErrores()) {
+		for(String error : algebra.getErrores()) {
 			System.out.println(error);
 		}
 
-		System.out.println(algebra);
+		System.out.println('\n' + algebra.toString());
 	}
 }

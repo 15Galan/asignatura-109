@@ -6,10 +6,10 @@ public class Alumno {
     private String dni;
     private double nota;
 
-    public Alumno(String nombre, String DNI, double nota) throws AlumnoException {
+    public Alumno(String DNI, String nombre, double nota) throws AlumnoException {
 
-        this.nombre = nombre;
         dni = DNI;
+        this.nombre = nombre;
 
         if(nota < 0){
             throw new AlumnoException("Nota negativa.");
@@ -18,10 +18,10 @@ public class Alumno {
         this.nota = nota;
     }
 
-    public Alumno(String nombre, String DNI){
+    public Alumno(String DNI, String nombre){
 
-        this.nombre = nombre;
         dni = DNI;
+        this.nombre = nombre;
         nota = 0;
     }
 
@@ -40,15 +40,15 @@ public class Alumno {
     @Override
     public String toString(){
 
-        return "DNI: " + dni + "    Nombre: " + nombre + "  Nota: " + nota + ".";
+        return nombre + "   " + dni;    // Un alumno esta definido por su nombre y su DNI, no se muestra su nota.
     }
 
     @Override
     public boolean equals(Object obj){
         boolean res = obj instanceof Alumno;    // ¿Este Objeto es un Alumno?
-        Alumno al = res ? (Alumno)obj : null;   // Si «res es true» crea el objeto ausiliar de Alumno para comparar.
+        Alumno al = res ? (Alumno)obj : null;   // Si «res es true» crea el objeto auxiliar de Alumno para comparar.
 
-        return res && al.nombre.equalsIgnoreCase(nombre) && al.dni.equalsIgnoreCase(dni);   // ¿Cuando son iguales?
+        return res && al.nombre.equalsIgnoreCase(nombre) && al.dni.equalsIgnoreCase(dni);   // Definicion de igualdad.
     }
 
     @Override
