@@ -2,7 +2,9 @@ package prCuentaPalabrasSimpleFicheros;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class ContadorPalabras {
@@ -21,16 +23,24 @@ public class ContadorPalabras {
     }
 
     private int esta(String palabra){   // Mejorar con un «while».
-        int esta = -1;
+        int esta = -1, i = 0;
 
         PalabraEnTexto auxiliar = new PalabraEnTexto(palabra);  // Un «String» no puede compararse en el array.
 
+        while(esta == -1 && i < numPalabras){
+            if(auxiliar.equals(palabras[i])){
+                esta = i;
+            }
+
+            i++;
+        }
+/*
         for(int i = 0; i < numPalabras; i++){   // El array puede tener posiciones vacias.
             if(auxiliar.equals(palabras[i])){
                 esta = i;
             }
         }
-
+*/
         return esta;
     }
 
@@ -78,6 +88,50 @@ public class ContadorPalabras {
     private void leerFichero(Scanner sc, String delimitadores){
         while(sc.hasNextLine()){                            // Se usa «hasNextLine()» porque se quieren obtener lineas.
             incluyeTodas(sc.nextLine(), delimitadores);     // El metodo «incluyeTodas()» trabaja con una linea.
+        }
+    }
+
+    public PalabraEnTexto encuentra(String palabra) throws NoSuchElementException {
+        boolean encontrada = false;
+        int i = 0;
+
+        PalabraEnTexto auxiliar = new PalabraEnTexto(palabra);  // La clase «PalabraEnTexto» no tiene «getPalabra()».
+
+        while (i < palabras.length && !encontrada) {
+            if (palabras[i].equals(auxiliar)) {
+                encontrada = true;
+            }
+
+            i++;
+        }
+
+        if (!encontrada) {
+            throw new NoSuchElementException("Palabra «" + palabra + "» no encontrada.");
+        }
+
+        return palabras[i];
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder mensaje = new StringBuilder();
+
+        mensaje.append("[");
+        mensaje.append(Arrays.toString(palabras));
+        mensaje.append("]");
+
+        return mensaje.toString();
+    }
+
+    public void presentaPalabras(String fichero) throws FileNotFoundException{
+        try(PrintWriter pw = new PrintWriter(fichero)){
+            presentaPalabras(pw);
+        }
+    }
+
+    public void presentaPalabras(PrintWriter flujo){
+        for(PalabraEnTexto palabra : palabras){
+            flujo.println(palabra);
         }
     }
 }

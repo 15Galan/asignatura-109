@@ -20,7 +20,7 @@ public class PalabraEnTexto {
         boolean res = obj instanceof PalabraEnTexto;                // ¿Este Objeto es una PalabraEnTexto?
         PalabraEnTexto palabra = res ? (PalabraEnTexto)obj : null;  // Si «res es true» crea el objeto auxiliar de PalabraEnTexto para comparar.
 
-        return res && palabra.palabra.equals(this.palabra); // Dos PalabraEnTexto son iguales si es la misma palabra.
+        return res && palabra.palabra.equals(this.palabra);     // Dos PalabraEnTexto son iguales si es la misma palabra.
     }
 
     @Override
@@ -30,7 +30,6 @@ public class PalabraEnTexto {
 
     @Override
     public String toString(){
-
         return palabra + ": " + veces;
     }
 }
