@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ContadorPalabras {
 
     private PalabraEnTexto[] palabras;
-    private int numPalabras;    // Cantidad de palabras en el array / ultima posicion libre del array.
+    private int numPalabras;    // Cantidad de palabras en el array y ultima posicion libre.
     protected static final int TAM_INICIAL = 10;
 
     public ContadorPalabras(){
@@ -22,7 +22,7 @@ public class ContadorPalabras {
         numPalabras = 0;
     }
 
-    private int esta(String palabra){   // Mejorar con un «while».
+    private int esta(String palabra){
         int esta = -1, i = 0;
 
         PalabraEnTexto auxiliar = new PalabraEnTexto(palabra);  // Un «String» no puede compararse en el array.
@@ -34,13 +34,7 @@ public class ContadorPalabras {
 
             i++;
         }
-/*
-        for(int i = 0; i < numPalabras; i++){   // El array puede tener posiciones vacias.
-            if(auxiliar.equals(palabras[i])){
-                esta = i;
-            }
-        }
-*/
+
         return esta;
     }
 
@@ -48,10 +42,10 @@ public class ContadorPalabras {
         int posicion = esta(palabra);   // Se establece el valor para no repetirlo continuamente.
 
         if(posicion != -1){
-            palabras[posicion].incrementa();
+            palabras[posicion].incrementa();    // Aumenta las «veces» que aparece la palabra.
 
         }else{
-            PalabraEnTexto nueva = new PalabraEnTexto(palabra);     // Al recibir un «String», se crea una PalabraEnTexto.
+            PalabraEnTexto nueva = new PalabraEnTexto(palabra);
 
             if(numPalabras == palabras.length){     // ¿El array esta lleno?
                 palabras = Arrays.copyOf(palabras, palabras.length*2);
@@ -97,7 +91,7 @@ public class ContadorPalabras {
 
         PalabraEnTexto auxiliar = new PalabraEnTexto(palabra);  // La clase «PalabraEnTexto» no tiene «getPalabra()».
 
-        while (i < palabras.length && !encontrada) {
+        while (i < numPalabras && !encontrada) {
             if (palabras[i].equals(auxiliar)) {
                 encontrada = true;
             }
@@ -109,7 +103,7 @@ public class ContadorPalabras {
             throw new NoSuchElementException("Palabra «" + palabra + "» no encontrada.");
         }
 
-        return palabras[i];
+        return palabras[--i];
     }
 
     @Override
@@ -117,7 +111,16 @@ public class ContadorPalabras {
         StringBuilder mensaje = new StringBuilder();
 
         mensaje.append("[");
-        mensaje.append(Arrays.toString(palabras));
+
+        for(int i = 0; i < numPalabras; i++){
+            if(i+1 < numPalabras){
+                mensaje.append(palabras[i] + ", ");
+
+            }else{
+                mensaje.append(palabras[i]);
+            }
+        }
+
         mensaje.append("]");
 
         return mensaje.toString();
@@ -131,7 +134,9 @@ public class ContadorPalabras {
 
     public void presentaPalabras(PrintWriter flujo){
         for(PalabraEnTexto palabra : palabras){
-            flujo.println(palabra);
+            if(palabra != null) {
+                flujo.println(palabra);
+            }
         }
     }
 }
