@@ -1,0 +1,25 @@
+AZAFRÁN
+	La rosa del azafrán
+CAIRO
+	La rosa púrpura del Cairo
+COLOR
+	Color púrpura
+	El color del dinero
+DINERO
+	El color del dinero
+	El dinero llama al dinero
+	Toma el dinero y corre
+IMPOSIBLE
+	Misión imposible
+MISIÓN
+	La misión
+	Misión imposible
+NOMBRE
+	El nombre de la rosa
+PÚRPURA
+	Color púrpura
+	La rosa púrpura del Cairo
+ROSA
+	El nombre de la rosa
+	La rosa del azafrán
+	La rosa púrpura del Cairo
