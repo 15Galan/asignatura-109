@@ -56,7 +56,7 @@ public class ControladorJarras implements ActionListener {
                 vistaJarras.agregarAHistorico("Se ha volcado la Jarra B sobre la Jarra A.");
                 vistaJarras.ok("Jarra B volcada con éxito.");
 
-            }else if(evento.equals(VistaJarras.FINALIZAR)){
+            }else if(evento.getActionCommand().equals(VistaJarras.FINALIZAR)){
                 jarraA = null;
                 jarraB = null;
 
