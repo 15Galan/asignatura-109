@@ -21,6 +21,7 @@ public class ControladorJarras implements ActionListener {
             if(evento.getActionCommand().equals(VistaJarras.INICIAR)){
                 jarraA = new Jarra(vistaJarras.capacidadInicialA());
                 jarraB = new Jarra(vistaJarras.capacidadInicialB());
+
                 vistaJarras.agregarAHistorico("Se han creado las Jarras A y B.");
                 vistaJarras.ok("Jarras creadas con éxito.");
 
@@ -73,6 +74,9 @@ public class ControladorJarras implements ActionListener {
 
         }catch (NullPointerException e){
             e.getCause();
+
+        }catch(RuntimeException e){
+            vistaJarras.error("Error al inicializar las jarras.");
         }
     }
 }
